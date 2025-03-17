@@ -16,7 +16,7 @@ class Pair implements Comparable<Pair> {
 
     @Override
     public int compareTo(Pair p) {
-        int dist = (int)((Math.pow(this.x, 2) + Math.pow(this.y, 2)) - (Math.pow(p.x, 2) + Math.pow(p.y, 2)));
+        int dist = (this.x + this.y) - (p.x + p.y);
         if (dist != 0) 
             return dist;
         else if (this.x != p.x) {
