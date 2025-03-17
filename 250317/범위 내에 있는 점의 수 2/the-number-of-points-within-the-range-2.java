@@ -28,7 +28,8 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             start = Integer.parseInt(st.nextToken());
             end = Integer.parseInt(st.nextToken());
-            sb.append(prefixSum[end] - prefixSum[start - 1]).append("\n"); 
+            if (start == 0) sb.append(prefixSum[end]).append("\n");
+            else sb.append(prefixSum[end] - prefixSum[start - 1]).append("\n"); 
         }
 
         System.out.println(sb);
