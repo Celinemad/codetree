@@ -17,8 +17,9 @@ public class Main {
             idx = Integer.parseInt(st.nextToken());
             arr[idx] = 1;
         }
-        for (int i = 1; i <= 1000000; i++) {
-            prefixSum[i] = prefixSum[i-1] + arr[i];
+        for (int i = 0; i <= 1000000; i++) {
+            if (i == 0) prefixSum[i] = arr[i];
+            else prefixSum[i] = prefixSum[i-1] + arr[i];
         }
 
         StringBuilder sb = new StringBuilder();
