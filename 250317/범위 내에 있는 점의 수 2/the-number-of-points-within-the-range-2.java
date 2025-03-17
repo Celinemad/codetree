@@ -17,7 +17,7 @@ public class Main {
             idx = Integer.parseInt(st.nextToken());
             arr[idx] = 1;
         }
-        for (int i = 1; i < 1000000; i++) {
+        for (int i = 1; i <= 1000000; i++) {
             prefixSum[i] = prefixSum[i-1] + arr[i];
         }
 
