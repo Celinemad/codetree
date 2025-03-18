@@ -13,12 +13,10 @@ public class Main {
             if (i == 2 || i == 3) {
                 dp[i] = 1;
             } else {
-                dp[i] =  dp[i-3] + dp[i-2];
+                dp[i] =  (dp[i-3] + dp[i-2]) % 10007;
             }
         }
-
-        int result = dp[N] % 10007;
         
-        System.out.println(result);
+        System.out.println(dp[N]);
     }
 }
