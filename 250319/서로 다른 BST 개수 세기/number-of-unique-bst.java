@@ -3,17 +3,15 @@ import java.io.*;
 
 public class Main {
 
-    // static int MAX_N = 19;
-    // static int[] dp = new int[MAX_N + 1];
-    // static int N;
+    static int MAX_N = 19;
+    static int[] dp = new int[MAX_N + 1];
+    static int N;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
-        int N = Integer.parseInt(br.readLine());
+        N = Integer.parseInt(br.readLine());
 
-        int[] dp = new int[N + 1];
-        
         dp[0] = 1;
         dp[1] = 1;
         dp[2] = 2;
