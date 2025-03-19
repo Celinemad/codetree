@@ -15,11 +15,11 @@ public class Main {
 
         if (N >= 3) {
             for (int i = 3; i <= N; i++) {
-            dp[i] = dp[i-1] * 2;
-            for (int j = 1; j <= i-2; j++) {
-                dp[i] += dp[j] * dp[i-j-1];
+                dp[i] = dp[i-1] * 2;
+                for (int j = 1; j <= i-2; j++) {
+                    dp[i] += dp[j] * dp[i-j-1];
+                }
             }
-        }
         }
 
         System.out.println(dp[N]);
