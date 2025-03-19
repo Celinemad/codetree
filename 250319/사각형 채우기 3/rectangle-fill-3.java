@@ -4,6 +4,7 @@ import java.util.*;
 public class Main {
 
     static int MAX_N = 1000;
+    static int MOD = 1000000007;
     static int[] dp = new int[MAX_N + 1];
 
     public static void main(String[] args) throws IOException {
@@ -16,7 +17,10 @@ public class Main {
         dp[3] = 22;
 
         for (int i = 5; i <= N; i++) {
-            dp[i] = (2 * dp[i-1] + dp[i-2] * 3 + dp[i-3] * 2 + dp[i-4] * 2) % 1000000007;
+            dp[i] = (2 * dp[i-1] + dp[i-2] * 3) % MOD;
+            for (int j = i-3; j >= 0; j--) {
+                dp[i] = (dp[i] + dp[i] * 2) % MOD;
+            }
         }
 
         System.out.println(dp[N]);
