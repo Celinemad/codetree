@@ -15,8 +15,8 @@ public class Main {
         dp[2] = 7;
         dp[3] = 22;
 
-        for (int i = 4; i <= N; i++) {
-            dp[i] = (2 * dp[i-1] + dp[i-2] * 3 + dp[i-3] * 2) % 1000000007;
+        for (int i = 5; i <= N; i++) {
+            dp[i] = (2 * dp[i-1] + dp[i-2] * 3 + dp[i-3] * 2 + dp[i-4] * 2) % 1000000007;
         }
 
         System.out.println(dp[N]);
