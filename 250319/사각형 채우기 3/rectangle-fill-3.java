@@ -5,7 +5,7 @@ public class Main {
 
     static int MAX_N = 1000;
     static int MOD = 1000000007;
-    static int[] dp = new int[MAX_N + 1];
+    static long[] dp = new long[MAX_N + 1];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
