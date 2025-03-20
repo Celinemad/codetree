@@ -50,15 +50,10 @@ public class Main {
             }
         }
 
+        int maxLen = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 dp[i][j] = findMax(i, j);
-            }
-        }
-
-        int maxLen = Integer.MIN_VALUE;
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
                 maxLen = Math.max(maxLen, dp[i][j]);
             }
         }
