@@ -15,7 +15,6 @@ public class Main {
     }
 
     public static int findMax(int r, int c) {
-        // System.out.println("[findMax] ("+r + ", " + c + ")"); 
         if (dp[r][c] != 0) {
             return dp[r][c];
         }
@@ -24,10 +23,8 @@ public class Main {
         for (int i = 0; i < 4; i++) {
             int prevR = r + drs[i];
             int prevC = c + dcs[i];
-            // System.out.println("curr: ("+r + ", " + c + ") | prev: (" + prevR + ", " + prevC + ")");
             if (inRange(prevR, prevC) && grid[r][c] > grid[prevR][prevC]) {
                 max = Math.max(findMax(prevR, prevC) + 1, max);
-                // System.out.println("prev: (" + prevR + ", " + prevC + ") => " + max);
             }
         }
         
@@ -57,11 +54,6 @@ public class Main {
                 answer = Math.max(findMax(i, j), answer);
             }
         }
-
-        // System.out.println(findMax(1, 0));
-        // dp[1][0] = findMax(1, 0);
-        // System.out.println(dp[1][0] + 1);
-        // System.out.println(findMax(2, 0));
         
         System.out.println(answer);
     }
