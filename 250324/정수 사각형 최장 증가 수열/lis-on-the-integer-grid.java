@@ -31,7 +31,7 @@ public class Main {
             }
         }
         
-        return max;
+        return dp[r][c] = max;
     }
 
     public static void main(String[] args) throws IOException {
@@ -54,8 +54,7 @@ public class Main {
         int answer = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                dp[i][j] = findMax(i, j);
-                answer = Math.max(dp[i][j], answer);
+                answer = Math.max(findMax(i, j), answer);
             }
         }
 
