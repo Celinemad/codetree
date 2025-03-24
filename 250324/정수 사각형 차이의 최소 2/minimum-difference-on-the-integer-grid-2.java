@@ -36,7 +36,7 @@ public class Main {
         }
 
         int prevR, prevC, minVal, maxVal;
-        Diff best = new Diff(MIN_VAL, MAX_VAL);
+        Diff best = new Diff(MIN_VAL-1, MAX_VAL+1);
         for (int i = 0; i < 2; i++) {
             prevR = r + drs[i];
             prevC = c + dcs[i];
