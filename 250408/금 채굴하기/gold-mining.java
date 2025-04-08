@@ -1,17 +1,21 @@
 import java.io.*;
+import java.util.*;
 import java.lang.*;
 
 public class Main {
     static int N, M;
     static int[][] grid;
 
+    static boolean inRange(int r, int c) {
+        return 0 <= r && r < N && 0 <= c && c < N;
+    }
     static int run(int r, int c, int k) {
         int goldCnt = 0;
         for (int i = -k; i <= k; i++) {
             int diff = k - Math.abs(i);
 
             for (int j = -diff; j <= diff; j++) {
-                if (grid[r+i][c+j] == 1) {
+                if (inRange(r+i, c+j) && grid[r+i][c+j] == 1) {
                     goldCnt++;
                 }
             }
@@ -42,7 +46,8 @@ public class Main {
             for (int j = 0; j < N; j++) {
                 for (int k = 0; k < N; k++) {
                     goldCnt = run(j, k, i);
-                    cost = i ^ 2 + (i+1) ^ 2;
+                    cost =(int)(Math.pow(i, 2) + Math.pow(i+1, 2));
+                    // System.out.printf("K: {%d} , const: {%d}\n", i, cost);
                     if (cost <= goldCnt * M) {
                         maxGoldCnt = Math.max(maxGoldCnt, goldCnt);
                     }
