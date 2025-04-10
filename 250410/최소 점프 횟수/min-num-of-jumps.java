@@ -10,12 +10,14 @@ public class Main {
         if (idx == N-1) {
             minCnt = Math.min(minCnt, cnt);
             return;
+        } else if (idx > N-1) {
+            return;
         }
 
         // System.out.printf("idx: %d, cnt: %d \n", idx, cnt);
         for (int i = 1; i <= arr[idx]; i++) {
             backtrack(idx + i, cnt + 1);
-            // System.out.println(i);
+         // System.out.println(i);
             // backtrack(idx - i, cnt - 1);
         }
     }
