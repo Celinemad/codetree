@@ -15,17 +15,31 @@ public class Main {
 
     static List<int[]> rocks = new ArrayList<>();
 
+    static List<int[]> startPoints = new ArrayList<>();
+
+    static void initialize() {
+        visited = new boolean[N][N];
+        for (int[] point : startPoints) {
+            q.add(point);
+            // System.out.println("point: " + Arrays.toString(point));
+            visited[point[0]][point[1]] = true;
+        }
+    }
+
     static void choose(int cnt, int startIdx) {
         if (cnt == M+1) {
-            answer = Math.max(answer, bfs());
-            // System.out.println("chosen");
+            initialize();
+            int bfs = bfs();
+            answer = Math.max(answer, bfs);
+            // System.out.println("chosen: " + bfs);
+
             return;
         }
 
         for (int i = startIdx; i < totalRocks; i++) {
             int[] rock = rocks.get(i);
             grid[rock[0]][rock[1]] = 0;
-            // System.out.println("(" + rock[0] +", " + rock[1] + ")");
+            // System.out.println("rock: " + Arrays.toString(rock));
             choose(cnt+1, i+1);
             grid[rock[0]][rock[1]] = 1;
         }
@@ -37,6 +51,7 @@ public class Main {
         int new_r, new_c;
         while (!q.isEmpty()) {
             int[] currPoint = q.poll();
+            // System.out.println(Arrays.toString(currPoint));
             cnt++;
 
             for (int i = 0; i < 4; i++) {
@@ -87,9 +102,7 @@ public class Main {
             int[] start = new int[2];
             start[0] = Integer.parseInt(st.nextToken())-1;
             start[1] = Integer.parseInt(st.nextToken())-1;
-            q.add(start);
-
-            visited[start[0]][start[1]] = true;
+            startPoints.add(start);
         }
 
         choose(1, 0);
