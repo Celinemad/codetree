@@ -8,27 +8,28 @@ public class Main {
     static int run() {
         int minLength = 100001;
 
+        int sum = 0;
+        int j = 0;
+        int length = 0;
         for (int i = 0; i < N; i++) {
-            int j = i;
-            int sum = 0;
-            int length = 0;
             while (sum < S && j < N) {
                 sum += arr[j];
                 length++;
                 j++;
             }
 
-            if (sum < S) {
-                continue;
-            } else {
+            if (sum >= S) {
                 minLength = Math.min(length, minLength);
             }
+
+            sum -= arr[i];
+            length--;
         }
 
         if (minLength == 100001) {
             return -1;
         }
-        
+
         return minLength;
     }
 
