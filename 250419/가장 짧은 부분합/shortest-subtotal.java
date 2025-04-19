@@ -25,6 +25,10 @@ public class Main {
             }
         }
 
+        if (minLength == 100001) {
+            return -1;
+        }
+        
         return minLength;
     }
 
