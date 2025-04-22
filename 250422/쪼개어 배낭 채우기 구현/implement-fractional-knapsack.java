@@ -48,16 +48,16 @@ public class Main {
 
         double totalValue = 0;
         for (Jewerl jewerl : jewerls) {
-            if (jewerl.weight < K) {
+            if (jewerl.weight < M) {
                 totalValue += (double) jewerl.price;
-                K -= jewerl.weight;
+                M -= jewerl.weight;
             } else {
-                totalValue += jewerl.value * K;
+                totalValue += Math.round(jewerl.value * M * 1000) / 1000.0;
                 break;
             }
         }
 
-        System.out.println(totalValue);
+        System.out.printf("%.3f", totalValue);
         
     }
 }
